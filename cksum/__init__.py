@@ -4,7 +4,6 @@ python.
 
 The constants and routine are cribbed from the POSIX man page
 """
-import sys
 
 crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
         0x17c56b6b, 0x1a864db2, 0x1e475005, 0x2608edb8, 0x22c9f00f,
@@ -61,16 +60,20 @@ crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
 
 UNSIGNED = lambda n: n & 0xffffffff
 
-def _memcrc(bytes b,long s=0):
-    cdef long sz = len(b)
-    cdef char ch
-    cdef long tabidx
-
+def _memcrc(b,s=0):
+    sz = len(b)
     for ch in b:
-        tabidx = (s>>24)^ch
-        s = ((s << 8)&0xffffffff) ^ crctab[tabidx]
-        
+        c = ord(ch)
+        tabidx = (s>>24)^c
+        s = UNSIGNED((s << 8)) ^ crctab[tabidx]
+
     return s, sz
+
+# Try to load efficient C implementation
+try:
+    from _cksum import _memcrc
+except ImportError:
+    print "How about no C"
 
 class Cksum:
     def __init__(self):
