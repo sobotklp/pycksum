@@ -13,11 +13,12 @@ except ImportError:
     cmdclass = {}
     ext_modules = [
     	Extension("_pycksum", ["ext/_pycksum.c"])
-    ],
+    ]
 
 setup(
-    name = "cksum",
+    name = "pycksum",
     description = "Python implementation of Unix checksum algorithm",
+    url = "https://github.com/sobotklp/pycksum",
     version = version,
     author = 'Lewis Sobotkiewicz',
     author_email = 'lewis.sobot@gmail.com',
