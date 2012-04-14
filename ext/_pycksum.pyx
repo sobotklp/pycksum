@@ -8,7 +8,7 @@ cdef extern from "_pycksum.h":
 cdef inline long UNSIGNED(long n):
     return n & 0xffffffff
 
-def _memcrc(bytes by,long s=0):
+def _memcrc(bytes by,unsigned long s=0):
     cdef char* b = by
     cdef Py_ssize_t sz = len(by)
     cdef char ch
