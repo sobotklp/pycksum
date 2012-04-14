@@ -9,15 +9,13 @@ def main():
 
     for fd, fname in fds:
         c = pycksum.Cksum()
-        sz = 0
         while 1:
             data = fd.read(4096)
             if len(data) == 0:
 	            break
             c.add(data)
-            sz += len(data)
 
-        print "%d %d %s" %  (c.get_cksum(), sz, fname)
+        print "%d %d %s" %  (c.get_cksum(), c.get_size(), fname)
 
 if __name__ == "__main__":
     main()
