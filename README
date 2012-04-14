@@ -1,0 +1,6 @@
+cksum - A Python implementation of the Unix cksum algorithm
+
+To install:
+    $ easy_install cksum
+
+The cksum algorithm generates a checksum for a stream of data that may be used for validating the integrity of a transferred file. 

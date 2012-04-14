@@ -2,4 +2,4 @@
 build
 dist
 *.so
-*.c
+MANIFEST

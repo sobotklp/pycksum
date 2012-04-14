@@ -66,14 +66,13 @@ def _memcrc(b,s=0):
         c = ord(ch)
         tabidx = (s>>24)^c
         s = UNSIGNED((s << 8)) ^ crctab[tabidx]
-
     return s, sz
 
 # Try to load efficient C implementation
 try:
     from _cksum import _memcrc
 except ImportError:
-    print "How about no C"
+    pass
 
 class Cksum:
     def __init__(self):

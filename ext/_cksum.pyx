@@ -1,12 +1,8 @@
 """
-This module implements the cksum command found in most UNIXes in pure
-python.
-
-The constants and routine are cribbed from the POSIX man page
+This module implements a Cython-compatible C extension for computing cksums 
 """
-import sys
 
-cdef tuple crctab = ( 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
+cdef list _crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
         0x17c56b6b, 0x1a864db2, 0x1e475005, 0x2608edb8, 0x22c9f00f,
         0x2f8ad6d6, 0x2b4bcb61, 0x350c9b64, 0x31cd86d3, 0x3c8ea00a,
         0x384fbdbd, 0x4c11db70, 0x48d0c6c7, 0x4593e01e, 0x4152fda9,
@@ -57,9 +53,10 @@ cdef tuple crctab = ( 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc
         0x89b8fd09, 0x8d79e0be, 0x803ac667, 0x84fbdbd0, 0x9abc8bd5,
         0x9e7d9662, 0x933eb0bb, 0x97ffad0c, 0xafb010b1, 0xab710d06,
         0xa6322bdf, 0xa2f33668, 0xbcb4666d, 0xb8757bda, 0xb5365d03,
-        0xb1f740b4 )
+        0xb1f740b4 ]
 
-UNSIGNED = lambda n: n & 0xffffffff
+cdef inline long UNSIGNED(long n):
+    return n & 0xffffffff
 
 def _memcrc(bytes b,long s=0):
     cdef long sz = len(b)
@@ -68,11 +65,11 @@ def _memcrc(bytes b,long s=0):
 
     for ch in b:
         tabidx = (s>>24)^ch
-        s = ((s << 8)&0xffffffff) ^ crctab[tabidx]
+        s = ((s << 8)&0xffffffff) ^ _crctab[tabidx]
         
     return s, sz
 
-class Cksum:
+cdef class Cksum:
     def __init__(self):
         self.reset()
 
@@ -96,15 +93,9 @@ class Cksum:
         while n:
             c = n & 0xFF
             n = n >> 8
-            s = UNSIGNED(s << 8) ^ crctab[(s >> 24) ^ c]
+            s = UNSIGNED(s << 8) ^ _crctab[(s >> 24) ^ c]
         return UNSIGNED(~s)
 
     def __repr__(self):
         return str(self.get_cksum())
-
-def cksum(o):
-    c = Cksum()
-    c.add(o)
-    return c.get_cksum()
-memcrc = cksum
 
