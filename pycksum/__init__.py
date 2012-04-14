@@ -73,7 +73,7 @@ def _memcrc(b,s=0):
 
 # Try to load efficient C implementation
 try:
-    from _cksum import _memcrc
+    from _pycksum import _memcrc
 except ImportError:
     pass
 

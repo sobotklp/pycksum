@@ -1,11 +1,11 @@
-import sys, cksum
+import sys, pycksum
 
 def main():
     fnames = sys.argv[1:]
     for fname in fnames:
         fd = open(fname, "rb")
 
-        c = cksum.Cksum()
+        c = pycksum.Cksum()
         sz = 0
         while 1:
             data = fd.read(4096)
