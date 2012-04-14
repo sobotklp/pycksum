@@ -58,7 +58,7 @@ cdef list _crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc
 cdef inline long UNSIGNED(long n):
     return n & 0xffffffff
 
-def _memcrc(bytes b,long s=0):
+def _memcrc(bytes b,unsigned long s=0):
     cdef long sz = len(b)
     cdef char ch
     cdef long tabidx
