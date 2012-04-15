@@ -16,6 +16,7 @@ setup(
     ext_modules = [
         Extension("_pycksum", ["ext/_pycksum.c"])
     ],
+    test_suite="tests",
     entry_points = {
         'console_scripts' : [
             'pycksum = pycksum.main:main',

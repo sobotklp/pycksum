@@ -53,7 +53,7 @@ uint32_t crctab[256] = { 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x13047
         0xa6322bdf, 0xa2f33668, 0xbcb4666d, 0xb8757bda, 0xb5365d03,
         0xb1f740b4 };
 
-inline uint32_t _memcksum(char *b, uint32_t s, const Py_ssize_t sz) {
+inline uint32_t memcksum(char *b, uint32_t s, const Py_ssize_t sz) {
     char *end = b + sz;
     while(b != end) {
         uint32_t tabidx = (s >> 24) ^ (*b++);

@@ -5,7 +5,7 @@ python.
 The constants and routine are cribbed from the POSIX man page
 """
 
-version_info = ['0.2.0']
+version_info = ['0.3.0']
 version = ".".join(map(str, version_info))
 
 crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
@@ -63,7 +63,7 @@ crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
 
 UNSIGNED = lambda n: n & 0xffffffff
 
-def _memcrc(b,s=0):
+def _memcksum(b,s=0):
     sz = len(b)
     for ch in b:
         c = ord(ch)
@@ -73,7 +73,7 @@ def _memcrc(b,s=0):
 
 # Try to load efficient C implementation
 try:
-    from _pycksum import _memcrc
+    from _pycksum import _memcksum
 except ImportError:
     pass
 
@@ -86,7 +86,7 @@ class Cksum:
         self._ck = 0
 
     def _add(self, b):
-        self._ck, incsz = _memcrc(b, self._ck)
+        self._ck, incsz = _memcksum(b, self._ck)
         self._sz += incsz
 
     def add(self, obj):
@@ -114,5 +114,4 @@ def cksum(o):
     c = Cksum()
     c.add(o)
     return c.get_cksum()
-memcrc = cksum
 
