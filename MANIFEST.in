@@ -1,3 +1,4 @@
 include README setup.py
 recursive-include pycksum *.py
 include ext/_pycksum.c
+include ext/_pycksum.h
