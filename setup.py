@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools.extension import Extension
 from pycksum import version
 
-long_description = open('README', 'rb').read()
+long_description = open('README.rst', 'rb').read()
 
 setup(
     name = "pycksum",
@@ -21,5 +21,18 @@ setup(
         'console_scripts' : [
             'pycksum = pycksum.main:main',
         ]
-    }
+    },
+    classifiers = [
+        'Intended Audience :: Developers',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Unix',
+        'Operating System :: POSIX',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.5',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+
+    ],
 )
