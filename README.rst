@@ -1,4 +1,4 @@
-pycksum - A Python implementation of the Unix cksum algorithm
+pycksum - A Python implementation of the cksum algorithm
 
 The ``cksum`` algorithm generates a checksum for a stream of data. While cksum is not cryptographically strong, it can be used to validate the integrity of transferred files.
 
@@ -11,17 +11,18 @@ Installation
 Examples
 ========
 
-The simplest way to use pycksum is to just give it a string:
+The simplest way to use pycksum is to just give it a string::
 
-    $ import pycksum
-    $ ck = pycksum.cksum("Any string")
+    import pycksum
+    ck = pycksum.cksum("Any string")
 
-You can pass in a file or an iterable:
+You can pass in a file or an iterable::
 
-    $ ck = pycksum.cksum( open("filename"))
-    $ ck = pycksum.cksum( ["This", "love", "is", "taking", "its", "toll", "on me"])
+    ck = pycksum.cksum( open("filename"))
 
-If you have a lot of data to process, it's more memory-efficient to calculate the cksum incrementally:
+    ck = pycksum.cksum( ["This", "love", "is", "taking", "its", "toll", "on me"])
+
+If you have a lot of data to process, it's more memory-efficient to calculate the cksum incrementally::
 
     c = pycksum.Cksum()
     for data in input_fd:
