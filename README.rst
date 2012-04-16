@@ -13,19 +13,19 @@ Examples
 
 The simplest way to use pycksum is to just give it a string:
 
-import pycksum
-ck = pycksum.cksum("Any string")
+    $ import pycksum
+    $ ck = pycksum.cksum("Any string")
 
 You can pass in a file or an iterable:
 
-ck = pycksum.cksum( open("filename"))
-ck = pycksum.cksum( ["This", "love", "is", "taking", "its", "toll", "on me"])
+    $ ck = pycksum.cksum( open("filename"))
+    $ ck = pycksum.cksum( ["This", "love", "is", "taking", "its", "toll", "on me"])
 
 If you have a lot of data to process, it's more memory-efficient to calculate the cksum incrementally:
 
-c = pycksum.Cksum()
-for data in input_fd:
-    c.add(data)
-ck = c.get_cksum()
-sz = c.get_size()
+    c = pycksum.Cksum()
+    for data in input_fd:
+        c.add(data)
+    ck = c.get_cksum()
+    sz = c.get_size()
 
