@@ -6,7 +6,7 @@ long_description = open('README.rst', 'rb').read()
 
 setup(
     name = "pycksum",
-    description = "Python implementation of Unix checksum algorithm",
+    description = "Python implementation of cksum algorithm",
     long_description = long_description,
     packages=['pycksum'],
     url = "https://github.com/sobotklp/pycksum",
