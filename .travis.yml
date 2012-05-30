@@ -3,9 +3,8 @@ python:
   - "2.5"
   - "2.6"
   - "2.7"
+  - "3.2"
   - "pypy"
-install:
-  - pip install -e .
 script:
   - python setup.py test
 
