@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os,unittest
+from __future__ import with_statement # Python 2.5
 
 import pycksum
 
