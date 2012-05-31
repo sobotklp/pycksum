@@ -8,15 +8,16 @@ class PyCksumTests(unittest.TestCase):
         self.file_path = os.path.join(os.path.dirname(__file__), "fixtures/test1.txt")
 
     def test_string(self):
-        self.assertEquals(pycksum.cksum(""), 4294967295L) # echo -n | cksum
-        self.assertEquals(pycksum.cksum("Hello world\n"), 3083891038L) # echo "Hello world" | cksum
+        self.assertEqual(pycksum.cksum(""), 4294967295) # echo -n | cksum
+        self.assertEqual(pycksum.cksum("Hello world\n"), 3083891038) # echo "Hello world" | cksum
 
     def test_file(self):
-        self.assertEquals(pycksum.cksum(open(self.file_path)), 3083891038L)
+        with open(self.file_path) as fd:
+            self.assertEqual(pycksum.cksum(fd), 3083891038)
 
     def test_iterable(self):
         l = ["Hello", " ", "world", "\n"]
-        self.assertEquals(pycksum.cksum(l), 3083891038L)
+        self.assertEqual(pycksum.cksum(l), 3083891038)
 
     def test_incremental(self):
         c = pycksum.Cksum()
@@ -27,7 +28,7 @@ class PyCksumTests(unittest.TestCase):
                 break
             c.add(data)
         fd.close()
-        self.assertEquals(c.get_cksum(), 3083891038L)
+        self.assertEqual(c.get_cksum(), 3083891038)
 
 def main():
     unittest.main(verbosity=2)
