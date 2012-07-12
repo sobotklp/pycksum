@@ -1,5 +1,9 @@
 pycksum - A Python implementation of the cksum algorithm
 
+.. image:: https://secure.travis-ci.org/sobotklp/pycksum.png?branch=master
+    :alt: Build Status
+    :target: http://travis-ci.org/sobotklp/pycksum
+
 The ``cksum`` algorithm generates a checksum for a stream of data. While cksum is not cryptographically strong, it can be used to validate the integrity of transferred files.
 
 Pycksum includes a pure Python implementation of ``cksum`` as well as an efficient C extension that will automatically be used on platforms that support it.
