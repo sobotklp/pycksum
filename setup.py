@@ -1,6 +1,6 @@
 from setuptools import setup
 from setuptools.extension import Extension
-from pycksum import version
+from pycksum import __version__
 
 long_description = open('README.rst').read()
 
@@ -10,7 +10,7 @@ setup(
     long_description = long_description,
     packages=['pycksum'],
     url = "https://github.com/sobotklp/pycksum",
-    version = version,
+    version = __version__,
     author = 'Lewis Sobotkiewicz',
     author_email = 'lewis.sobot@gmail.com',
     ext_modules = [
@@ -24,15 +24,16 @@ setup(
     },
     use_2to3 = True,
     classifiers = [
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'Operating System :: MacOS :: MacOS X',
-        'Operating System :: Unix',
-        'Operating System :: POSIX',
+        'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],

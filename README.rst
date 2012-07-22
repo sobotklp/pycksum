@@ -10,6 +10,9 @@ Pycksum includes a pure Python implementation of ``cksum`` as well as an efficie
 
 Installation
 ============
+
+Install from PyPi using pip, a package manager for Python::
+
     $ pip install pycksum
 
 Examples

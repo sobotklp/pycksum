@@ -1,5 +1,5 @@
-version_info = ['0','3','4']
-version = ".".join(map(str, version_info))
+__version_info__ = ['0','3','5']
+__version__ = ".".join(__version_info__)
 
 crctab = [ 0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
         0x17c56b6b, 0x1a864db2, 0x1e475005, 0x2608edb8, 0x22c9f00f,
