@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-import sys, pycksum
+import sys
+import pycksum
+
 
 def main():
     if len(sys.argv) > 1:
@@ -12,10 +14,13 @@ def main():
         while 1:
             data = fd.read(4096)
             if len(data) == 0:
-	            break
+                break
             c.add(data)
 
-        print "%d %d %s" %  (c.get_cksum(), c.get_size(), fname)
+        try:
+            eval("""print "%d %d %s" %  (c.get_cksum(), c.get_size(), fname)""")
+        except SyntaxError:
+            print("%d %d %s" % (c.get_cksum(), c.get_size(), fname))
 
 if __name__ == "__main__":
     main()

@@ -5,25 +5,25 @@ from pycksum import __version__
 long_description = open('README.rst').read()
 
 setup(
-    name = "pycksum",
-    description = "Python implementation of cksum algorithm",
-    long_description = long_description,
+    name="pycksum",
+    description="Python implementation of cksum algorithm",
+    long_description=long_description,
     packages=['pycksum'],
-    url = "https://github.com/sobotklp/pycksum",
-    version = __version__,
-    author = 'Lewis Sobotkiewicz',
-    author_email = 'lewis.sobot@gmail.com',
-    ext_modules = [
+    url="https://github.com/sobotklp/pycksum",
+    version=__version__,
+    author='Lewis Sobotkiewicz',
+    author_email='lewis.sobot@gmail.com',
+    ext_modules=[
         Extension("_pycksum", ["ext/_pycksum.c"])
     ],
     test_suite="tests",
-    entry_points = {
-        'console_scripts' : [
+    entry_points={
+        'console_scripts': [
             'pycksum = pycksum.main:main',
         ]
     },
-    use_2to3 = True,
-    classifiers = [
+    use_2to3=True,
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
