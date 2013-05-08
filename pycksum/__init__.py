@@ -87,7 +87,7 @@ class Cksum:
     def add(self, obj):
         if hasattr(obj, '__iter__'):
             for b in iter(obj):
-                self._add(b)
+                self._add(b.encode('utf-8'))
         else:
             self._add(obj)
 
