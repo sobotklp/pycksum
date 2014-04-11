@@ -34,7 +34,7 @@ class PyCksumTests(unittest.TestCase):
         self.assertEqual(c.get_cksum(), 3083891038)
 
     def test_bytes(self):
-        if sys.version_info.major == 3:
+        if sys.version_info < (3,):
             b = b'"Seen On a Bumper Sticker: I\'d give my right hand to be ambidextrous."'
             self.assertEqual(pycksum.cksum(b), 21159027)
 
