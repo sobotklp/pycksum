@@ -1,4 +1,4 @@
-__version_info__ = ['0', '4', '0']
+__version_info__ = ['0', '4', '1']
 __version__ = ".".join(__version_info__)
 
 crctab = [0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
@@ -58,6 +58,11 @@ UNSIGNED = lambda n: n & 0xffffffff
 
 
 def _memcksum(b, s=0):
+    if b.__class__.__name__ == 'int':
+        tabidx = (s >> 24) ^ b
+        s = UNSIGNED((s << 8)) ^ crctab[tabidx]
+        return s, 1
+ 
     sz = len(b)
     for ch in b:
         c = ord(ch)
