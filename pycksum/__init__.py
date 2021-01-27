@@ -1,4 +1,4 @@
-__version_info__ = ['0', '4', '3']
+__version_info__ = ['0', '4', '4']
 __version__ = ".".join(__version_info__)
 
 crctab = [0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
