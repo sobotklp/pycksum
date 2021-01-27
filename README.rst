@@ -1,8 +1,6 @@
 pycksum - A Python implementation of the cksum algorithm
 
-.. image:: https://secure.travis-ci.org/sobotklp/pycksum.png?branch=master
-    :alt: Build Status
-    :target: http://travis-ci.org/sobotklp/pycksum
+|Build|  |PyVersion|  |PyPiVersion|  |License|
 
 The ``cksum`` algorithm generates a checksum for a stream of data. While cksum is not cryptographically strong, it can be used to validate the integrity of transferred files.
 
@@ -37,3 +35,17 @@ If you have a lot of data to process, it's more memory-efficient to calculate th
     ck = c.get_cksum()
     sz = c.get_size()
 
+
+.. |PyPiVersion| image:: https://img.shields.io/pypi/v/pycksum.svg
+   :alt: PyPi
+   :target: https://pypi.python.org/pypi/pycksum
+
+.. |License| image:: https://img.shields.io/badge/license-MIT-yellow.svg
+   :alt:
+
+.. |PyVersion| image:: https://img.shields.io/badge/python-2.7+-blue.svg
+   :alt:
+
+.. |Build| image:: https://secure.travis-ci.org/sobotklp/pycksum.png?branch=master
+    :alt: Build Status
+    :target: http://travis-ci.org/sobotklp/pycksum
