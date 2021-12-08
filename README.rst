@@ -46,6 +46,6 @@ If you have a lot of data to process, it's more memory-efficient to calculate th
 .. |PyVersion| image:: https://img.shields.io/badge/python-2.7+-blue.svg
    :alt:
 
-.. |Build| image:: https://secure.travis-ci.org/sobotklp/pycksum.png?branch=master
-    :alt: Build Status
-    :target: http://travis-ci.org/sobotklp/pycksum
+.. |Build| image:: https://github.com/sobotklp/pycksum/workflows/CI/badge.svg?branch=master
+     :target: https://github.com/sobotklp/pycksum/actions?workflow=CI
+     :alt: CI Status
