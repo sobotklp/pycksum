@@ -22,7 +22,6 @@ setup(
             'pycksum = pycksum.main:main',
         ]
     },
-    use_2to3=True,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
