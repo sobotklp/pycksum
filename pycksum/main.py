@@ -17,10 +17,8 @@ def main():
                 break
             c.add(data)
 
-        try:
-            eval("""print "%d %d %s" %  (c.get_cksum(), c.get_size(), fname)""")
-        except SyntaxError:
-            print("%d %d %s" % (c.get_cksum(), c.get_size(), fname))
+        print("%d %d %s" % (c.get_cksum(), c.get_size(), fname))
+
 
 if __name__ == "__main__":
     main()

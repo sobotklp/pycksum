@@ -54,7 +54,7 @@ crctab = [0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9, 0x130476dc,
           0xa6322bdf, 0xa2f33668, 0xbcb4666d, 0xb8757bda, 0xb5365d03,
           0xb1f740b4]
 
-UNSIGNED = lambda n: n & 0xffffffff
+UNSIGNED = lambda n: n & 0xffffffff  # noqa: E731
 
 
 def _memcksum(b, s=0):
@@ -62,7 +62,7 @@ def _memcksum(b, s=0):
         tabidx = (s >> 24) ^ b
         s = UNSIGNED((s << 8)) ^ crctab[tabidx]
         return s, 1
- 
+
     sz = len(b)
     for ch in b:
         c = ord(ch)
@@ -70,9 +70,10 @@ def _memcksum(b, s=0):
         s = UNSIGNED((s << 8)) ^ crctab[tabidx]
     return s, sz
 
+
 # Try to load efficient C implementation
 try:
-    from _pycksum import _memcksum
+    from _pycksum import _memcksum  # noqa: F811
 except ImportError:
     pass
 
