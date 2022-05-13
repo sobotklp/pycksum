@@ -304,7 +304,7 @@ static CYTHON_INLINE size_t __Pyx_PyInt_AsSize_t(PyObject*);
   #define likely(x)   (x)
   #define unlikely(x) (x)
 #endif /* __GNUC__ */
-    
+
 static PyObject *__pyx_m;
 static PyObject *__pyx_b;
 static PyObject *__pyx_empty_tuple;
@@ -438,7 +438,7 @@ static PyObject *__pyx_n_s__s;
 
 /* "_pycksum.pyx":9
  *     uint32_t memcksum(char *b, uint32_t s, Py_ssize_t sz)
- * 
+ *
  * def _memcksum(bytes by,uint32_t s=0):             # <<<<<<<<<<<<<<
  *     cdef char* b = by
  *     cdef Py_ssize_t sz = len(by)
@@ -515,7 +515,7 @@ static PyObject *__pyx_pf_8_pycksum__memcksum(PyObject *__pyx_self, PyObject *__
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_by), (&PyBytes_Type), 1, "by", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 9; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "_pycksum.pyx":10
- * 
+ *
  * def _memcksum(bytes by,uint32_t s=0):
  *     cdef char* b = by             # <<<<<<<<<<<<<<
  *     cdef Py_ssize_t sz = len(by)
@@ -529,19 +529,19 @@ static PyObject *__pyx_pf_8_pycksum__memcksum(PyObject *__pyx_self, PyObject *__
  *     cdef char* b = by
  *     cdef Py_ssize_t sz = len(by)             # <<<<<<<<<<<<<<
  *     return memcksum(b, s, sz), sz
- * 
+ *
  */
   if (unlikely(((PyObject *)__pyx_v_by) == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L1_error;} 
+    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 11; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_2 = PyBytes_GET_SIZE(((PyObject *)__pyx_v_by)); 
+  __pyx_t_2 = PyBytes_GET_SIZE(((PyObject *)__pyx_v_by));
   __pyx_v_sz = __pyx_t_2;
 
   /* "_pycksum.pyx":12
  *     cdef char* b = by
  *     cdef Py_ssize_t sz = len(by)
  *     return memcksum(b, s, sz), sz             # <<<<<<<<<<<<<<
- * 
+ *
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_3 = __Pyx_PyInt_to_py_uint32_t(memcksum(__pyx_v_b, __pyx_v_s, __pyx_v_sz)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 12; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -685,7 +685,7 @@ PyMODINIT_FUNC PyInit__pycksum(void)
 
   /* "_pycksum.pyx":9
  *     uint32_t memcksum(char *b, uint32_t s, Py_ssize_t sz)
- * 
+ *
  * def _memcksum(bytes by,uint32_t s=0):             # <<<<<<<<<<<<<<
  *     cdef char* b = by
  *     cdef Py_ssize_t sz = len(by)
