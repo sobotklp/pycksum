@@ -43,7 +43,7 @@ If you have a lot of data to process, it's more memory-efficient to calculate th
 .. |License| image:: https://img.shields.io/badge/license-MIT-yellow.svg
    :alt:
 
-.. |PyVersion| image:: https://img.shields.io/badge/python-2.7+-blue.svg
+.. |PyVersion| image:: https://img.shields.io/badge/python-3.7+-blue.svg
    :alt:
 
 .. |Build| image:: https://github.com/sobotklp/pycksum/workflows/CI/badge.svg?branch=master
