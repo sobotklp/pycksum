@@ -22,6 +22,10 @@ class PyCksumTests(unittest.TestCase):
         with open(self.file_path) as fd:
             self.assertEqual(pycksum.cksum(fd), 3083891038)
 
+    def test_file_binary(self):
+        with open(self.file_path, "rb") as fd:
+            self.assertEqual(pycksum.cksum(fd), 3083891038)
+
     def test_iterable(self):
         test_list = ["Hello", " ", "world", "\n"]
         self.assertEqual(pycksum.cksum(test_list), 3083891038)

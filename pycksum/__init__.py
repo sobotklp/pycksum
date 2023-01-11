@@ -1,4 +1,4 @@
-__version_info__ = ["0", "4", "5"]
+__version_info__ = ["0", "4", "7"]
 __version__ = ".".join(__version_info__)
 
 crctab = [
@@ -293,6 +293,8 @@ class Cksum:
         self._ck = 0
 
     def _add(self, b):
+        if type(b) == str:  # Convert strings to bytes
+            b = str.encode(b)
         self._ck, incsz = _memcksum(b, self._ck)
         self._sz += incsz
 
