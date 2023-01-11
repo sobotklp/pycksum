@@ -270,8 +270,7 @@ def _memcksum(b, s=0):
         return s, 1
 
     sz = len(b)
-    for ch in b:
-        c = ord(ch)
+    for c in b:
         tabidx = (s >> 24) ^ c
         s = UNSIGNED((s << 8)) ^ crctab[tabidx]
     return s, sz
