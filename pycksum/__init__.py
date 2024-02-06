@@ -292,7 +292,7 @@ class Cksum:
         self._ck = 0
 
     def _add(self, b):
-        if type(b) == str:  # Convert strings to bytes
+        if type(b) is str:  # Convert strings to bytes
             b = str.encode(b)
         self._ck, incsz = _memcksum(b, self._ck)
         self._sz += incsz
