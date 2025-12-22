@@ -1,8 +1,45 @@
+[project]
+name = "pycksum"
+version = "0.4.8"
+requires-python = ">= 3.7"
+description = "Python implementation of cksum algorithm"
+readme = "README.rst"
+authors = [
+    { name = "Lewis Sobotkiewicz", email = "lewis.sobot@gmail.com" }
+]
+
+license = "MIT"
+license-files = ["LICENSE"]
+
+classifiers = [
+     "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.entry-points."pycksum"]
+pycksum = "pycksum.main:main"
+
+[project.urls]
+Repository = "https://github.com/sobotklp/pycksum"
+
 [build-system]
-requires = ['setuptools>=40.8.0']
+requires = ["setuptools>=61.0", "Cython"]
 build-backend = 'setuptools.build_meta'
 
-[tool.black]
-target-version = ['py310']
-force-exclude = 'tests/test_runner_apps/tagged/tests_syntax_error.py'
+[tool.setuptools]
+include-package-data = false
+package-dir = {"pycksum" = "pycksum"}
+ext-modules = [
+    {name = "pycksum._pycksum", sources = ["ext/_pycksum.c"]}
+]
 
