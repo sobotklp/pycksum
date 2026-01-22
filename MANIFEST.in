@@ -1,4 +1,4 @@
-include README.rst setup.py
+include README.rst
 include LICENSE
 recursive-include pycksum *.py
 include ext/*.pyx

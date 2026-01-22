@@ -26,7 +26,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-[project.entry-points."pycksum"]
+[project.scripts]
 pycksum = "pycksum.main:main"
 
 [project.urls]
@@ -40,6 +40,6 @@ build-backend = 'setuptools.build_meta'
 include-package-data = false
 package-dir = {"pycksum" = "pycksum"}
 ext-modules = [
-    {name = "pycksum._pycksum", sources = ["ext/_pycksum.c"]}
+    {name = "pycksum._pycksum", sources = ["ext/_pycksum.pyx"]}
 ]
 
