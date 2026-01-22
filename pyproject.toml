@@ -1,6 +1,6 @@
 [project]
 name = "pycksum"
-version = "0.4.8"
+version = "0.5.0"
 requires-python = ">= 3.7"
 description = "Python implementation of cksum algorithm"
 readme = "README.rst"
