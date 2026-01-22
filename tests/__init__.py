@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from __future__ import with_statement  # Python 2.5
 
 import os
 import sys
