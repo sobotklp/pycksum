@@ -1,24 +1,22 @@
-#!/usr/bin/env python
 import sys
+from contextlib import nullcontext
 
 import pycksum
 
 
 def main():
-    if len(sys.argv) > 1:
-        fds = [(open(fname, "rb"), fname) for fname in sys.argv[1:]]
-    else:
-        fds = [(sys.stdin, "")]
+    fnames = sys.argv[1:] if len(sys.argv) > 1 else [None]
 
-    for fd, fname in fds:
-        c = pycksum.Cksum()
-        while 1:
-            data = fd.read(4096)
-            if len(data) == 0:
-                break
-            c.add(data)
+    for fname in fnames:
+        with nullcontext(sys.stdin) if fname is None else open(fname, "rb") as fd:
+            c = pycksum.Cksum()
+            while 1:
+                data = fd.read(4096)
+                if len(data) == 0:
+                    break
+                c.add(data)
 
-        print("%d %d %s" % (c.get_cksum(), c.get_size(), fname))
+        print(f"{c.get_cksum()} {c.get_size()} {fname or ''}")
 
 
 if __name__ == "__main__":

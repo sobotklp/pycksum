@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-
 import os
-import sys
 import unittest
 
 import pycksum
@@ -31,19 +28,13 @@ class PyCksumTests(unittest.TestCase):
 
     def test_incremental(self):
         c = pycksum.Cksum()
-        fd = open(self.file_path)
-        while 1:
-            data = fd.read(1)
-            if len(data) == 0:
-                break
-            c.add(data)
-        fd.close()
+        with open(self.file_path) as fd:
+            while 1:
+                data = fd.read(1)
+                if len(data) == 0:
+                    break
+                c.add(data)
         self.assertEqual(c.get_cksum(), 3083891038)
-
-    def test_bytes(self):
-        if sys.version_info < (3,):
-            b = b'"Seen On a Bumper Sticker: I\'d give my right hand to be ambidextrous."'
-            self.assertEqual(pycksum.cksum(b), 21159027)
 
 
 def main():
