@@ -260,25 +260,25 @@ crctab = [
     0xB1F740B4,
 ]
 
-UNSIGNED = lambda n: n & 0xFFFFFFFF  # noqa: E731
+UNSIGNED = lambda n: n & 0xFFFFFFFF
 
 
 def _memcksum(b, s=0):
     if b.__class__.__name__ == "int":
         tabidx = (s >> 24) ^ b
-        s = UNSIGNED((s << 8)) ^ crctab[tabidx]
+        s = UNSIGNED(s << 8) ^ crctab[tabidx]
         return s, 1
 
     sz = len(b)
     for c in b:
         tabidx = (s >> 24) ^ c
-        s = UNSIGNED((s << 8)) ^ crctab[tabidx]
+        s = UNSIGNED(s << 8) ^ crctab[tabidx]
     return s, sz
 
 
 # Try to load efficient C implementation
 try:
-    from _pycksum import _memcksum  # noqa: F811
+    from _pycksum import _memcksum
 except ImportError:
     pass
 
