@@ -3,7 +3,7 @@ name = "pycksum"
 version = "0.6.0"
 requires-python = ">= 3.10"
 description = "Python implementation of cksum algorithm"
-readme = "README.rst"
+readme = "README.md"
 authors = [
     { name = "Lewis Sobotkiewicz", email = "lewis.sobot@gmail.com" }
 ]
